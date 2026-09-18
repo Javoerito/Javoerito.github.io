@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javier Angulo — Ingeniería de Software</title>
+<meta name="description" content="Portafolio de Javier Andrés Angulo Albornoz, estudiante de Ingeniería de Software en la EPN y asistente de pruebas y análisis de datos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+
+<a class="enlaceSaltar" href="#contenidoPrincipal">Saltar al contenido principal</a>
+
+<div class="contenedor">
+<div class="diseno">
+
+  <aside class="riel">
+    <button class="botonMenu" id="jaBotonMenu" aria-expanded="false" aria-controls="jaMenuNavegacion">
+      Menú
+    </button>
+
+    <h1 class="nombre">Javier Andrés<br>Angulo Albornoz</h1>
+    <p class="rol">Estudiante de <b>Ingeniería de Software</b> en la EPN. Pruebas de software y análisis de datos.</p>
+
+    <ul class="contactos">
+      <li><a href="mailto:jaangulo04@gmail.com">jaangulo04@gmail.com</a></li>
+      <li><a href="tel:+593998204684">+593 99 820 4684</a></li>
+      <li><a href="https://linkedin.com/in/javier-angulo-6948a2351" target="_blank" rel="noopener">LinkedIn <span class="soloLectorPantalla">(se abre en una pestaña nueva)</span></a></li>
+      <li><a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener">GitHub <span class="soloLectorPantalla">(se abre en una pestaña nueva)</span></a></li>
+    </ul>
+
+    <a class="enlaceCv" href="./assets/docs/cv-javier-angulo.pdf" target="_blank" rel="noopener">Descargar CV (PDF, 180 KB) <span class="soloLectorPantalla">(se abre en una pestaña nueva)</span></a>
+
+    <nav class="navegacion" id="jaMenuNavegacion" aria-label="Secciones">
+      <a href="#perfil">Información personal</a>
+      <a href="#educacion">Educación</a>
+      <a href="#experiencia">Experiencia laboral</a>
+      <a href="#proyectos">Proyectos actuales</a>
+      <a href="#certificaciones">Certificaciones</a>
+    </nav>
+
+    <div class="habilidades">
+      <h2>Programación</h2>
+      <p>Java, C++, C, Python, JavaScript, SQL</p>
+      <h2>Infraestructura y redes</h2>
+      <p>Linux (WSL), Cisco</p>
+      <h2>Herramientas</h2>
+      <p>Git/GitHub, Playwright, SonarQube, Power BI, Excel</p>
+      <h2>Idiomas</h2>
+      <p>Español nativo, inglés intermedio</p>
+    </div>
+  </aside>
+
+  <main class="principal" id="contenidoPrincipal" tabindex="-1">
+
+    <section id="perfil" class="seccion">
+      <h2 class="tituloSeccion">Información personal</h2>
+      <p class="parrafoDestacado">Trabajo donde el software se verifica: pruebas funcionales, automatización y los datos que salen de ellas.</p>
+      <p class="parrafo">Curso Ingeniería de Software en la Escuela Politécnica Nacional desde 2022 y trabajo como asistente de pruebas y análisis en Smartlab, documentando defectos y construyendo tableros que el equipo usa para decidir. Vivo en Quito, Ecuador.</p>
+      <p class="parrafo">Me interesan la calidad de software, el análisis de datos y la accesibilidad web. Suelo llevar un proyecto de cada uno en paralelo.</p>
+    </section>
+
+    <section id="educacion" class="seccion">
+      <h2 class="tituloSeccion">Educación</h2>
+      <div class="entrada">
+        <h3>Escuela Politécnica Nacional</h3>
+        <p class="metaDato">Ingeniería de Software · Quito, Ecuador · 2022 – Actualidad</p>
+        <ul>
+          <li>Áreas de estudio relevantes: Pruebas de Software y Calidad, Análisis de Datos, Business Intelligence, Bases de Datos y Metodologías Ágiles.</li>
+          <li>Miembro de la Asociación de Estudiantes de Ingeniería en Sistemas (AEIS).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experiencia" class="seccion">
+      <h2 class="tituloSeccion">Experiencia laboral</h2>
+
+      <div class="entrada">
+        <h3>Asistente de Pruebas y Análisis — Smartlab</h3>
+        <p class="metaDato">Quito, Ecuador · Actualidad</p>
+        <ul>
+          <li>Ejecuto pruebas funcionales y de calidad sobre aplicaciones web, documentando defectos y casos de prueba.</li>
+          <li>Analizo datos y elaboro reportes que apoyan la toma de decisiones del equipo.</li>
+          <li>Construyo tableros y métricas de seguimiento para Business Intelligence.</li>
+          <li>Trabajo en entornos Linux y WSL, y configuro y resuelvo incidencias de redes Cisco.</li>
+          <li>Programo scripts y componentes de apoyo en Java, C++, Python y C, además de gestionar las bases de datos donde se registran las pruebas.</li>
+        </ul>
+      </div>
+
+      <div class="entrada">
+        <h3>Soporte y Mantenimiento de Sistemas — Ferretería</h3>
+        <p class="metaDato">Quito, Ecuador</p>
+        <ul>
+          <li>Mantenimiento preventivo y correctivo del sistema de ventas e inventario del negocio.</li>
+          <li>Resolución de incidencias técnicas y soporte a los equipos del punto de venta.</li>
+          <li>Gestión de la base de datos para el control de stock y facturación.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="proyectos" class="seccion">
+      <h2 class="tituloSeccion">Proyectos actuales</h2>
+      <div class="proyectos">
+
+        <article class="proyecto">
+          <h3>Traductor Braille ↔ Español</h3>
+          <p>Aplicación web que convierte texto entre español y braille en ambos sentidos, con pruebas unitarias en JUnit 5 sobre la lógica de traducción.</p>
+          <ul class="pila"><li>Java</li><li>Spring Boot</li><li>Thymeleaf</li><li>JUnit 5</li></ul>
+          <div class="enlaces">
+            <a href="https://github.com/TU-USUARIO/traductor-braille" target="_blank" rel="noopener">Código <span class="soloLectorPantalla">del Traductor Braille ↔ Español (se abre en una pestaña nueva)</span></a>
+          </div>
+        </article>
+
+        <article class="proyecto">
+          <h3>Mapa interactivo de Ecuador</h3>
+          <p>App móvil que muestra puntos de interés turístico sobre un mapa interactivo y envía datos de ubicación a otros módulos mediante intents.</p>
+          <ul class="pila"><li>Flutter</li><li>OpenStreetMap</li><li>Android</li></ul>
+          <div class="enlaces">
+            <a href="https://github.com/TU-USUARIO/mapa-ecuador" target="_blank" rel="noopener">Código <span class="soloLectorPantalla">del Mapa interactivo de Ecuador (se abre en una pestaña nueva)</span></a>
+          </div>
+        </article>
+
+        <article class="proyecto">
+          <h3>Reproductor de MP3</h3>
+          <p>Aplicación de escritorio para gestionar y reproducir archivos de audio, con controles de reproducción y lista de canciones.</p>
+          <ul class="pila"><li>Java</li><li>Swing</li></ul>
+          <div class="enlaces">
+            <a href="https://github.com/TU-USUARIO/reproductor-mp3" target="_blank" rel="noopener">Código <span class="soloLectorPantalla">del Reproductor de MP3 (se abre en una pestaña nueva)</span></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="certificaciones" class="seccion">
+      <h2 class="tituloSeccion">Certificaciones</h2>
+      <div class="vacio">
+        <p>Sección en construcción.</p>
+      </div>
+
+      <!-- PLANTILLA: copia este bloque dentro de <section> y borra el div.vacio
+      <div class="entrada">
+        <h3>Nombre de la certificación</h3>
+        <p class="metaDato">Entidad emisora · Mes Año</p>
+        <div class="enlaces">
+          <a href="./assets/docs/certificado.pdf" target="_blank" rel="noopener">Ver certificado (PDF, 320 KB)</a>
+        </div>
+      </div>
+      -->
+    </section>
+
+    <footer class="piePagina">
+      <p>Javier Angulo · Quito, Ecuador · <a href="mailto:jaangulo04@gmail.com">jaangulo04@gmail.com</a> · <span id="jaAnioActual"></span></p>
+    </footer>
+  </main>
+</div>
+</div>
+
+<script src="./js/script.js"></script>
+</body>
+</html>
