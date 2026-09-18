@@ -46,4 +46,23 @@ document.addEventListener("DOMContentLoaded", function jaAlIniciar() {
   jaSecciones.forEach(function jaObservarSeccion(jaSeccion) {
     jaObservadorSecciones.observe(jaSeccion);
   });
+
+  const jaPrefiereMovimientoReducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!jaPrefiereMovimientoReducido) {
+    const jaElementosAnimables = document.querySelectorAll(".jaAnimable");
+    const jaOpcionesRevelado = { threshold: 0.15 };
+
+    function jaAlRevelar(jaEntradas, jaObservador) {
+      jaEntradas.forEach(function jaRevisarRevelado(jaEntrada) {
+        if (!jaEntrada.isIntersecting) return;
+        jaEntrada.target.classList.add("jaVisible");
+        jaObservador.unobserve(jaEntrada.target);
+      });
+    }
+
+    const jaObservadorRevelado = new IntersectionObserver(jaAlRevelar, jaOpcionesRevelado);
+    jaElementosAnimables.forEach(function jaObservarElemento(jaElemento) {
+      jaObservadorRevelado.observe(jaElemento);
+    });
+  }
 });

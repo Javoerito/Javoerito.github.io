@@ -78,6 +78,26 @@ body{
   border:0;
 }
 
+html.jaConJs .jaAnimable{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+html.jaConJs .jaAnimable.jaVisible{
+  opacity:1;
+  transform:translateY(0);
+}
+html.jaConJs .proyectos .jaAnimable:nth-child(2){transition-delay:.08s}
+html.jaConJs .proyectos .jaAnimable:nth-child(3){transition-delay:.16s}
+
+@media (prefers-reduced-motion: reduce){
+  html.jaConJs .jaAnimable{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
 a{color:inherit}
 a:focus-visible,
 button:focus-visible{
@@ -95,7 +115,7 @@ button:focus-visible{
 .diseno{
   display:grid;
   grid-template-columns:var(--jaAnchoRiel) 1fr;
-  gap:clamp(2rem,5vw,4.5rem);
+  gap:clamp(3rem,8vw,6.5rem);
   align-items:start;
   height:100%;
 }
@@ -105,9 +125,12 @@ button:focus-visible{
   overflow-y:auto;
   overscroll-behavior:contain;
   padding-block:clamp(3rem,7vw,5.5rem) 4rem;
-  scrollbar-width:thin;
-  scrollbar-color:var(--jaColorLinea) transparent;
+  padding-right:clamp(1.5rem,3vw,2.5rem);
+  border-right:1px solid var(--jaColorLinea);
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
+.riel::-webkit-scrollbar{display:none}
 
 .botonMenu{
   display:none;
@@ -123,7 +146,10 @@ button:focus-visible{
   font-size:.95rem;
   font-weight:600;
   cursor:pointer;
+  transition:background-color .15s ease, transform .1s ease;
 }
+.botonMenu:hover{background:var(--jaColorAcentoSuave)}
+.botonMenu:active{background:var(--jaColorAcentoSuave); transform:scale(.98)}
 
 .nombre{
   margin:0 0 .35rem;
@@ -155,8 +181,10 @@ button:focus-visible{
   text-decoration:none;
   border-bottom:1px solid var(--jaColorLinea);
   padding-bottom:1px;
+  transition:color .15s ease, border-color .15s ease;
 }
 .contactos a:hover{border-bottom-color:var(--jaColorAcento); color:var(--jaColorAcento)}
+.contactos a:active{color:var(--jaColorAcento); opacity:.75}
 
 .enlaceCv{
   display:inline-block;
@@ -168,10 +196,12 @@ button:focus-visible{
   font-weight:600;
   text-decoration:none;
   border-radius:3px;
+  transition:background-color .15s ease, transform .1s ease;
 }
 :root[data-tema="oscuro"] .enlaceCv,
 html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
 .enlaceCv:hover{opacity:.88}
+.enlaceCv:active{opacity:.75; transform:scale(.98)}
 
 .navegacion{
   border-top:1px solid var(--jaColorLinea);
@@ -189,9 +219,12 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   color:var(--jaColorTintaSuave);
   padding-left:.9rem;
   border-left:2px solid transparent;
+  border-radius:0 4px 4px 0;
+  transition:color .15s ease, border-color .15s ease, background-color .15s ease;
 }
 .navegacion a:hover,
 .navegacion a.jaEnlaceActivo{color:var(--jaColorAcento); border-left-color:var(--jaColorAcento)}
+.navegacion a:active{background:var(--jaColorAcentoSuave)}
 
 .habilidades{border-top:1px solid var(--jaColorLinea); padding-top:1.25rem; font-size:.85rem}
 .habilidades h2{
@@ -208,20 +241,31 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   overflow-y:auto;
   overscroll-behavior:contain;
   padding-block:clamp(3rem,7vw,5.5rem) 4rem;
-  scrollbar-width:thin;
-  scrollbar-color:var(--jaColorLinea) transparent;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
+.principal::-webkit-scrollbar{display:none}
 
 .seccion{margin-bottom:var(--jaEspaciado)}
 .seccion:last-child{margin-bottom:0}
 
 .tituloSeccion{
-  margin:0 0 1.5rem;
-  padding-bottom:.6rem;
-  border-bottom:1px solid var(--jaColorLinea);
-  font-size:1.05rem;
-  font-weight:600;
-  letter-spacing:-.01em;
+  position:relative;
+  margin:0 0 1.75rem;
+  padding-left:1rem;
+  font-size:clamp(1.3rem,2.4vw,1.6rem);
+  font-weight:700;
+  letter-spacing:-.015em;
+  line-height:1.2;
+}
+.tituloSeccion::before{
+  content:"";
+  position:absolute;
+  left:0; top:.15em;
+  width:4px;
+  height:1em;
+  border-radius:2px;
+  background:var(--jaColorAcento);
 }
 
 .parrafoDestacado{
@@ -249,9 +293,10 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
 }
 .entrada h3{
   margin:0;
-  font-size:1.05rem;
-  font-weight:600;
+  font-size:1.1rem;
+  font-weight:700;
   letter-spacing:-.01em;
+  color:var(--jaColorTinta);
 }
 .metaDato{
   margin:.15rem 0 .75rem;
@@ -270,8 +315,10 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   padding:1.35rem;
   display:flex;
   flex-direction:column;
+  transition:border-color .15s ease, box-shadow .15s ease;
 }
-.proyecto h3{margin:0 0 .4rem; font-size:1.02rem; font-weight:600}
+.proyecto:hover{border-color:var(--jaColorAcento)}
+.proyecto h3{margin:0 0 .5rem; font-size:1.08rem; font-weight:700; letter-spacing:-.01em}
 .proyecto p{margin:0 0 1rem; font-size:.92rem; color:var(--jaColorTintaSuave); flex:1}
 .pila{
   list-style:none; display:flex; flex-wrap:wrap; gap:.4rem;
@@ -286,8 +333,9 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   border-radius:3px;
 }
 .enlaces{display:flex; flex-wrap:wrap; gap:1rem; font-size:.88rem; font-weight:500}
-.enlaces a{color:var(--jaColorAcento); text-decoration:none; border-bottom:1px solid var(--jaColorAcentoSuave)}
+.enlaces a{color:var(--jaColorAcento); text-decoration:none; border-bottom:1px solid var(--jaColorAcentoSuave); transition:border-color .15s ease, opacity .15s ease}
 .enlaces a:hover{border-bottom-color:var(--jaColorAcento)}
+.enlaces a:active{opacity:.7}
 
 .vacio{
   border:1px dashed var(--jaColorLinea);
@@ -305,6 +353,11 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   color:var(--jaColorTintaSuave);
 }
 
+@media (max-width:1024px){
+  :root{ --jaAnchoRiel: 240px; }
+  .diseno{gap:clamp(2rem,5vw,3.5rem)}
+}
+
 @media (max-width:820px){
   html,body{height:auto; overflow:visible}
   .contenedor{height:auto}
@@ -314,6 +367,7 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
     overflow-y:visible;
     padding-block:0;
   }
+  .riel{border-right:none; padding-right:0}
   .contenedor{padding-top:clamp(2rem,7vw,3.5rem); padding-bottom:2rem}
   .botonMenu{display:block}
   .navegacion{display:none}
