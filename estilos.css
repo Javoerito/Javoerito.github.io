@@ -1,0 +1,274 @@
+/* ============================================================
+   TEMA — para cambiar a MORADO, comenta el bloque VERDE
+   y descomenta el bloque MORADO de más abajo.
+   Las variables (propiedades personalizadas) usan prefijo
+   --ja en camelCase, como pidió Pepe.
+   ============================================================ */
+
+:root{
+  /* --- VERDE (activo) --- */
+  --jaColorFondo:        #FFFFFF;
+  --jaColorTinta:        #14231A;
+  --jaColorTintaSuave:   #55665C;
+  --jaColorAcento:       #1F7A4C;
+  --jaColorAcentoSuave:  #EAF3ED;
+  --jaColorLinea:        #D8E3DC;
+
+  --jaAnchoMaximo: 1120px;
+  --jaAnchoRiel: 280px;
+  --jaEspaciado: clamp(2.5rem, 6vw, 5rem);
+}
+
+/* --- MORADO (alternativo) ---
+:root{
+  --jaColorFondo:        #FFFFFF;
+  --jaColorTinta:        #1C1726;
+  --jaColorTintaSuave:   #5F5870;
+  --jaColorAcento:       #5B3BA6;
+  --jaColorAcentoSuave:  #EFEAF8;
+  --jaColorLinea:        #DFD9EC;
+}
+*/
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-tema="claro"]){
+    --jaColorFondo:#0F1511; --jaColorTinta:#E8EFEA; --jaColorTintaSuave:#9BAFA4;
+    --jaColorAcento:#4FBF87; --jaColorAcentoSuave:#16241C; --jaColorLinea:#243029;
+  }
+}
+:root[data-tema="oscuro"]{
+  --jaColorFondo:#0F1511; --jaColorTinta:#E8EFEA; --jaColorTintaSuave:#9BAFA4;
+  --jaColorAcento:#4FBF87; --jaColorAcentoSuave:#16241C; --jaColorLinea:#243029;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+
+body{
+  margin:0;
+  background:var(--jaColorFondo);
+  color:var(--jaColorTinta);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit}
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--jaColorAcento);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* ---------- Estructura ---------- */
+.contenedor{
+  max-width:var(--jaAnchoMaximo);
+  margin:0 auto;
+  padding:0 clamp(1.25rem,4vw,3rem);
+}
+.diseno{
+  display:grid;
+  grid-template-columns:var(--jaAnchoRiel) 1fr;
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:start;
+  padding-block:clamp(3rem,7vw,5.5rem) 4rem;
+}
+
+/* ---------- Riel izquierdo ---------- */
+.riel{position:sticky; top:clamp(2rem,5vw,3.5rem)}
+
+.botonMenu{
+  display:none;
+  width:100%;
+  margin-bottom:1.25rem;
+  padding:.6rem 1rem;
+  background:var(--jaColorFondo);
+  color:var(--jaColorTinta);
+  border:1px solid var(--jaColorLinea);
+  border-radius:4px;
+  font-family:inherit;
+  font-size:.9rem;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.nombre{
+  margin:0 0 .35rem;
+  font-size:clamp(1.9rem,3.4vw,2.35rem);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-.025em;
+}
+.rol{
+  margin:0 0 1.75rem;
+  color:var(--jaColorTintaSuave);
+  font-size:.95rem;
+  max-width:24ch;
+}
+.rol b{color:var(--jaColorTinta); font-weight:600}
+
+.contactos{
+  list-style:none;
+  margin:0 0 1.75rem;
+  padding:0;
+  font-size:.9rem;
+  display:grid;
+  gap:.45rem;
+}
+.contactos a{
+  text-decoration:none;
+  border-bottom:1px solid var(--jaColorLinea);
+  padding-bottom:1px;
+}
+.contactos a:hover{border-bottom-color:var(--jaColorAcento); color:var(--jaColorAcento)}
+
+.enlaceCv{
+  display:inline-block;
+  margin-bottom:2rem;
+  padding:.55rem 1rem;
+  background:var(--jaColorAcento);
+  color:#fff;
+  font-size:.88rem;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:3px;
+}
+:root[data-tema="oscuro"] .enlaceCv,
+html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
+.enlaceCv:hover{opacity:.88}
+
+.navegacion{
+  border-top:1px solid var(--jaColorLinea);
+  padding-top:1.25rem;
+  margin-bottom:2rem;
+  display:grid;
+  gap:.5rem;
+  font-size:.9rem;
+}
+.navegacion a{
+  text-decoration:none;
+  color:var(--jaColorTintaSuave);
+  padding-left:.9rem;
+  border-left:2px solid transparent;
+}
+.navegacion a:hover,
+.navegacion a.jaEnlaceActivo{color:var(--jaColorAcento); border-left-color:var(--jaColorAcento)}
+
+.habilidades{border-top:1px solid var(--jaColorLinea); padding-top:1.25rem; font-size:.85rem}
+.habilidades h2{
+  font-size:.85rem;
+  font-weight:600;
+  margin:0 0 .5rem;
+  color:var(--jaColorTinta);
+}
+.habilidades p{margin:0 0 .9rem; color:var(--jaColorTintaSuave)}
+
+/* ---------- Contenido ---------- */
+.principal{min-width:0}
+
+.seccion{margin-bottom:var(--jaEspaciado)}
+.seccion:last-child{margin-bottom:0}
+
+.tituloSeccion{
+  margin:0 0 1.5rem;
+  padding-bottom:.6rem;
+  border-bottom:1px solid var(--jaColorLinea);
+  font-size:1.05rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+
+.parrafoDestacado{
+  font-size:1.15rem;
+  line-height:1.65;
+  max-width:62ch;
+  margin:0 0 1.25rem;
+}
+.parrafo{max-width:66ch; color:var(--jaColorTintaSuave); margin:0 0 1rem}
+
+/* Entradas cronológicas */
+.entrada{
+  position:relative;
+  padding-left:1.6rem;
+  padding-bottom:2rem;
+  border-left:1px solid var(--jaColorLinea);
+}
+.entrada:last-child{padding-bottom:0; border-left-color:transparent}
+.entrada::before{
+  content:"";
+  position:absolute;
+  left:-4.5px; top:.55rem;
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--jaColorAcento);
+}
+.entrada h3{
+  margin:0;
+  font-size:1.05rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+.metaDato{
+  margin:.15rem 0 .75rem;
+  font-size:.88rem;
+  color:var(--jaColorTintaSuave);
+}
+.entrada ul{margin:0; padding-left:1.1rem; max-width:64ch}
+.entrada li{margin-bottom:.4rem; color:var(--jaColorTintaSuave)}
+
+/* Proyectos */
+.proyectos{display:grid; gap:1.25rem}
+@media (min-width:900px){ .proyectos{grid-template-columns:1fr 1fr} }
+
+.proyecto{
+  border:1px solid var(--jaColorLinea);
+  border-radius:4px;
+  padding:1.35rem;
+  display:flex;
+  flex-direction:column;
+}
+.proyecto h3{margin:0 0 .4rem; font-size:1.02rem; font-weight:600}
+.proyecto p{margin:0 0 1rem; font-size:.92rem; color:var(--jaColorTintaSuave); flex:1}
+.pila{
+  list-style:none; display:flex; flex-wrap:wrap; gap:.4rem;
+  margin:0 0 1rem; padding:0;
+}
+.pila li{
+  background:var(--jaColorAcentoSuave);
+  color:var(--jaColorAcento);
+  font-size:.78rem;
+  font-weight:500;
+  padding:.2rem .55rem;
+  border-radius:3px;
+}
+.enlaces{display:flex; flex-wrap:wrap; gap:1rem; font-size:.88rem; font-weight:500}
+.enlaces a{color:var(--jaColorAcento); text-decoration:none; border-bottom:1px solid var(--jaColorAcentoSuave)}
+.enlaces a:hover{border-bottom-color:var(--jaColorAcento)}
+
+/* Estado vacío */
+.vacio{
+  border:1px dashed var(--jaColorLinea);
+  border-radius:4px;
+  padding:2rem 1.5rem;
+  max-width:60ch;
+}
+.vacio p{margin:0; color:var(--jaColorTintaSuave); font-size:.95rem}
+
+.piePagina{
+  border-top:1px solid var(--jaColorLinea);
+  padding:1.5rem 0 2.5rem;
+  font-size:.85rem;
+  color:var(--jaColorTintaSuave);
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width:820px){
+  .diseno{grid-template-columns:1fr; gap:2.5rem}
+  .riel{position:static}
+  .botonMenu{display:block}
+  .navegacion{display:none}
+  .navegacion.jaMenuAbierto{display:grid}
+}
