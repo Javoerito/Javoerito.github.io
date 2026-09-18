@@ -8,8 +8,8 @@
   --jaColorAcentoSuave:  #EAF3ED;
   --jaColorLinea:        #D8E3DC;
 
-  --jaAnchoMaximo: 1120px;
-  --jaAnchoRiel: 280px;
+  --jaAnchoMaximo: 1280px;
+  --jaAnchoRiel: 230px;
   --jaEspaciado: clamp(2.5rem, 6vw, 5rem);
 }
 
@@ -106,6 +106,10 @@ button:focus-visible{
   border-radius:2px;
 }
 
+:root{
+  --jaColorTarjetaHover: color-mix(in srgb, var(--jaColorFondo) 88%, var(--jaColorTinta) 12%);
+}
+
 .contenedor{
   max-width:var(--jaAnchoMaximo);
   margin:0 auto;
@@ -122,15 +126,11 @@ button:focus-visible{
 
 .riel{
   height:100%;
-  overflow-y:auto;
-  overscroll-behavior:contain;
-  padding-block:clamp(3rem,7vw,5.5rem) 4rem;
+  overflow-y:hidden;
+  padding-block:clamp(2.25rem,6vw,4.5rem) 3rem;
   padding-right:clamp(1.5rem,3vw,2.5rem);
   border-right:1px solid var(--jaColorLinea);
-  scrollbar-width:none;
-  -ms-overflow-style:none;
 }
-.riel::-webkit-scrollbar{display:none}
 
 .botonMenu{
   display:none;
@@ -159,7 +159,7 @@ button:focus-visible{
   letter-spacing:-.025em;
 }
 .rol{
-  margin:0 0 1.75rem;
+  margin:0 0 1.4rem;
   color:var(--jaColorTintaSuave);
   font-size:.95rem;
   max-width:24ch;
@@ -168,11 +168,11 @@ button:focus-visible{
 
 .contactos{
   list-style:none;
-  margin:0 0 1.75rem;
+  margin:0 0 1.4rem;
   padding:0;
   font-size:.9rem;
   display:grid;
-  gap:.45rem;
+  gap:.35rem;
 }
 .contactos a{
   display:inline-flex;
@@ -188,7 +188,7 @@ button:focus-visible{
 
 .enlaceCv{
   display:inline-block;
-  margin-bottom:2rem;
+  margin-bottom:1.5rem;
   padding:.55rem 1rem;
   background:var(--jaColorAcento);
   color:#fff;
@@ -205,10 +205,10 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
 
 .navegacion{
   border-top:1px solid var(--jaColorLinea);
-  padding-top:1.25rem;
-  margin-bottom:2rem;
+  padding-top:1rem;
+  margin-bottom:1.5rem;
   display:grid;
-  gap:.5rem;
+  gap:.25rem;
   font-size:.9rem;
 }
 .navegacion a{
@@ -277,20 +277,14 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
 .parrafo{max-width:66ch; color:var(--jaColorTintaSuave); margin:0 0 1rem}
 
 .entrada{
-  position:relative;
-  padding-left:1.6rem;
-  padding-bottom:2rem;
-  border-left:1px solid var(--jaColorLinea);
+  border:1px solid var(--jaColorLinea);
+  border-radius:6px;
+  padding:1.35rem 1.5rem;
+  margin-bottom:1.1rem;
+  transition:background-color .15s ease, border-color .15s ease;
 }
-.entrada:last-child{padding-bottom:0; border-left-color:transparent}
-.entrada::before{
-  content:"";
-  position:absolute;
-  left:-4.5px; top:.55rem;
-  width:8px; height:8px;
-  border-radius:50%;
-  background:var(--jaColorAcento);
-}
+.entrada:last-child{margin-bottom:0}
+.entrada:hover{background:var(--jaColorTarjetaHover); border-color:var(--jaColorAcento)}
 .entrada h3{
   margin:0;
   font-size:1.1rem;
@@ -315,9 +309,9 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   padding:1.35rem;
   display:flex;
   flex-direction:column;
-  transition:border-color .15s ease, box-shadow .15s ease;
+  transition:background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
-.proyecto:hover{border-color:var(--jaColorAcento)}
+.proyecto:hover{background:var(--jaColorTarjetaHover); border-color:var(--jaColorAcento)}
 .proyecto h3{margin:0 0 .5rem; font-size:1.08rem; font-weight:700; letter-spacing:-.01em}
 .proyecto p{margin:0 0 1rem; font-size:.92rem; color:var(--jaColorTintaSuave); flex:1}
 .pila{
@@ -353,8 +347,18 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
   color:var(--jaColorTintaSuave);
 }
 
+@media (min-width:821px) and (max-height:760px){
+  .riel{padding-block:1.5rem 2rem}
+  .rol{margin-bottom:1rem}
+  .contactos{margin-bottom:1rem; gap:.25rem}
+  .enlaceCv{margin-bottom:1rem}
+  .navegacion{margin-bottom:1rem}
+  .navegacion a{min-height:32px}
+  .habilidades p{margin-bottom:.6rem}
+}
+
 @media (max-width:1024px){
-  :root{ --jaAnchoRiel: 240px; }
+  :root{ --jaAnchoRiel: 200px; }
   .diseno{gap:clamp(2rem,5vw,3.5rem)}
 }
 
@@ -377,5 +381,5 @@ html:not([data-tema="claro"]) .enlaceCv{color:var(--jaColorFondo)}
 @media (max-width:480px){
   .contenedor{padding-inline:1rem}
   .proyecto{padding:1.1rem}
-  .entrada{padding-left:1.2rem}
+  .entrada{padding:1.1rem 1.25rem}
 }
