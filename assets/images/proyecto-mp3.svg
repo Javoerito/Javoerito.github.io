@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Foto: Reproductor de MP3">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#173C2C"/>
+      <stop offset="100%" stop-color="#4C9E6C"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="rgba(255,255,255,0.18)"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <rect width="800" height="450" fill="url(#dots)"/>
+  <g transform="translate(400,205)" stroke="#F5FAF7" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <circle cx='0' cy='-5' r='75'/><circle cx='0' cy='-5' r='18'/><path d='M-75,-5 H-30 M75,-5 H30' stroke-linecap='round'/>
+  </g>
+  <text x="400" y="400" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#F5FAF7" opacity="0.85">Foto: Reproductor de MP3</text>
+</svg>
